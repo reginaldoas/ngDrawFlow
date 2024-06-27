@@ -1,6 +1,6 @@
 {
-  "name": "drawflow",
-  "version": "0.0.59",
+  "name": "ngdrawflow",
+  "version": "0.0.60",
   "description": "Simple flow library",
   "main": "dist/drawflow.min.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jerosoler/Drawflow.git"
+    "url": "https://github.com/reginaldoas/ngDrawFlow.git"
   },
   "keywords": [
     "flow",
@@ -19,12 +19,12 @@
     "flow-based-programming",
     "flowchart"
   ],
-  "author": "Jero soler",
+  "author": "Reginaldo Souza",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jerosoler/Drawflow/issues"
+    "url": "https://github.com/reginaldoas/ngDrawFlow/issues"
   },
-  "homepage": "https://github.com/jerosoler/Drawflow#readme",
+  "homepage": "https://github.com/reginaldoas/ngDrawFlow#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",
