@@ -1,0 +1,88 @@
+<div class="wrapper">
+    <div class="col">
+      <div class="drag-drawflow" draggable="true" (dragstart)="drag($event,'facebook')">
+        <i class="fab fa-facebook"></i><span> Facebook</span>
+      </div>
+      <div class="drag-drawflow" draggable="true" (dragstart)="drag($event,'slack')">
+        <i class="fab fa-slack"></i><span> Slack receive message</span>
+      </div>
+      <div class="drag-drawflow" draggable="true" (dragstart)="drag($event,'github')">
+        <i class="fab fa-github"></i><span> Github Star</span>
+      </div>
+      <div class="drag-drawflow" draggable="true" (dragstart)="drag($event,'telegram')">
+        <i class="fab fa-telegram"></i><span> Telegram send message</span>
+      </div>
+      <div class="drag-drawflow" draggable="true" (dragstart)="drag($event,'aws')">
+        <i class="fab fa-aws"></i><span> AWS</span>
+      </div>
+      <div class="drag-drawflow" draggable="true" (dragstart)="drag($event,'log')">
+        <i class="fas fa-file-signature"></i><span> File Log</span>
+      </div>
+      <div class="drag-drawflow" draggable="true" (dragstart)="drag($event,'google')">
+        <i class="fab fa-google-drive"></i><span> Google Drive save</span>
+      </div>
+      <div class="drag-drawflow" draggable="true" (dragstart)="drag($event,'email')">
+        <i class="fas fa-at"></i><span> Email send</span>
+      </div>
+      <div class="drag-drawflow" draggable="true" (dragstart)="drag($event,'template')">
+        <i class="fas fa-code"></i><span> Template</span>
+      </div>
+      <div class="drag-drawflow" draggable="true" (dragstart)="drag($event,'multiple')">
+        <i class="fas fa-code-branch"></i><span> Multiple inputs/outputs</span>
+      </div>
+      <div class="drag-drawflow" draggable="true" (dragstart)="drag($event,'personalized')">
+        <i class="fas fa-fill"></i><span> Personalized</span>
+      </div>
+      <div class="drag-drawflow" draggable="true" (dragstart)="drag($event,'dbclick')">
+        <i class="fas fa-mouse"></i><span> DBClick!</span>
+      </div>
+
+
+    </div>
+    <div class="col-right">
+      <div class="menu">
+        <ul>
+          <li (click)="changeModule($event,'Home')" (ngClass)="{'selected': module === 'Home'}">Home</li>
+          <li (click)="changeModule($event,'Other')" (ngClass)="{'selected': module === 'Other'}">Other Module</li>
+        </ul>
+      </div>
+      <div id="drawflow" #drawflow (drop)="drop($event)" (dragover)="allowDrop($event)">
+        <div class="btn-clear" (click)="clear()">Clear</div>
+        <div class="btn-lock">
+          <div (click)="changeMode('lock')" *ngIf="!locked"><i id="lock" class="fas fa-lock"></i></div>
+          <div (click)="changeMode('unlock')" *ngIf="locked"><i id="unlock" class="fas fa-lock-open"></i></div>
+        </div>
+        <div class="bar-zoom">
+          <div (click)="zoom('out')"><i class="fas fa-search-minus"></i></div>
+          <div (click)="zoom('reset')"><i class="fas fa-search"></i></div>
+          <div (click)="zoom('in')"><i class="fas fa-search-plus"></i></div>
+        </div>
+      </div>
+      
+    </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Selected Node</h4>
+  </div>
+  <div class="modal-body" *ngIf="selectedNode">
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <label>Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            [(ngModel)]="selectedNode.data.name"
+            required
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss(selectedNode)">Save</button>
+  </div>
+</ng-template>
